@@ -14,7 +14,7 @@ class Data:
         print("Data loaded")
 
     def clean_data(self):
-        self.df['date'] = pd.to_datetime(self.df[["year","month","day","hour"]])
+        self.df['date'] = pd.to_datetime(self.df[["year", "month", "day", "hour"]], errors='coerce')
         self.null_values = self.df[self.df["pm2.5"].isnull()].copy()
         self.df.drop(columns=["year","month","day","hour"], inplace= True)
         self.df["pm2.5"] = self.df["pm2.5"].interpolate(method='linear',limit_direction='both')
@@ -26,6 +26,3 @@ class Data:
         if self.df is None:
             raise ValueError("Data not loaded")
         return self.df
-    
-    def null_values_data(self):
-        return self.null_values
