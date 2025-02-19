@@ -1,12 +1,16 @@
 from DataClean.dataClean import Data
 from Model.model import Pollution
 
-data_extract = Data("DataAnalysisQuipux\Data\data.txt")
-data_extract.data_load()
-data_extract.data_clean()
-data = data_extract.data_get()
+def main():
+    data_extract = Data("DataAnalysisQuipux\Data\data.txt")
+    data_extract.load_data()
+    data_extract.clean_data()
+    data = data_extract.get_data()
 
-prediction = Pollution(data)
-prediction.data_split()
-prediction.model_train()
-prediction.model_evaluate()
+    prediction = Pollution(data)
+    prediction.split_data()
+    prediction.train_model()
+    prediction.evaluate_model()
+
+if __name__ == "__main__":
+    main()
