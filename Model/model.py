@@ -1,8 +1,6 @@
-import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import GradientBoostingRegressor
 from sklearn.metrics import mean_absolute_error, mean_squared_error
-import joblib
 
 class Pollution:
     def __init__(self,data):
@@ -25,9 +23,6 @@ class Pollution:
         self.model.fit(self.X_train, self.y_train)
         print('model trained')
 
-        joblib.dump(self.model, filename ='DataAnalysisQuipux\Model\model_rfr.pkl')
-
-    
     def evaluate_model(self):
         if self.model is None: 
             raise ValueError('model does not train')
