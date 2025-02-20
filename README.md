@@ -38,5 +38,5 @@ Para ejecutar la prueba del modelo, simplemente ejecuta:
 
 ```bash
 python test.py
-´´´
+
 
